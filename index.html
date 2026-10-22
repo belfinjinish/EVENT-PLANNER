@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Event Planner - Plan and manage your events easily.">
+    <title>Event Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== Header Section ========== -->
+    <header id="main-header">
+        <div class="header-content">
+            <h1>📅 Event Planner</h1>
+            <p class="header-tagline">Plan and manage your events</p>
+        </div>
+    </header>
+
+    <!-- ========== Main Content Section ========== -->
+    <main id="main-content">
+
+        <!-- Toolbar: Add Event Button -->
+        <section id="toolbar">
+            <h2 class="section-title">Upcoming Events</h2>
+            <button id="add-event-btn" type="button">+ Add Event</button>
+        </section>
+
+        <!-- ========== Add Event Form (Hidden by Default) ========== -->
+        <section id="event-form-container" class="hidden">
+            <h2 class="form-heading">📝 Add New Event</h2>
+            <form id="event-form">
+                <!-- Event Name -->
+                <div class="form-group">
+                    <label for="event-name">Event Name</label>
+                    <input type="text" id="event-name" placeholder="Enter event name" required>
+                </div>
+
+                <!-- Date and Time (side by side) -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-date">Date</label>
+                        <input type="date" id="event-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-time">Time</label>
+                        <input type="time" id="event-time" required>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="event-location">Location</label>
+                    <input type="text" id="event-location" placeholder="Enter event location" required>
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label for="event-category">Category</label>
+                    <select id="event-category" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="meeting">Meeting</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="conference">Conference</option>
+                        <option value="college">College</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="event-description">Description</label>
+                    <textarea id="event-description" rows="4" placeholder="Describe your event..."></textarea>
+                </div>
+
+                <!-- Validation Message -->
+                <p id="form-message" class="form-message hidden"></p>
+
+                <!-- Form Buttons -->
+                <div class="form-actions">
+                    <button type="submit" id="create-event-btn" class="btn-create">Create Event</button>
+                    <button type="button" id="cancel-btn" class="btn-cancel">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Event Cards Container -->
+        <section id="events-container">
+
+            <!-- Event Card 1 -->
+            <article class="event-card">
+                <div class="card-category-tag category-conference">Conference</div>
+                <div class="card-body">
+                    <h3 class="card-title">Tech Innovation Summit</h3>
+                    <ul class="card-details">
+                        <li class="card-detail">
+                            <span class="detail-icon">📆</span>
+                            <span>October 25, 2026</span>
+                        </li>
+                        <li class="card-detail">
+                            <span class="detail-icon">🕐</span>
+                            <span>09:00 AM - 05:00 PM</span>
+                        </li>
+                        <li class="card-detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Convention Center, Chennai</span>
+                        </li>
+                    </ul>
+                    <p class="card-description">
+                        A full-day summit exploring the latest trends in AI, cloud computing, and software development.
+                    </p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-edit" type="button">✏️ Edit</button>
+                    <button class="btn-delete" type="button">🗑️ Delete</button>
+                </div>
+            </article>
+
+            <!-- Event Card 2 -->
+            <article class="event-card">
+                <div class="card-category-tag category-social">Social</div>
+                <div class="card-body">
+                    <h3 class="card-title">Team Building Picnic</h3>
+                    <ul class="card-details">
+                        <li class="card-detail">
+                            <span class="detail-icon">📆</span>
+                            <span>November 02, 2026</span>
+                        </li>
+                        <li class="card-detail">
+                            <span class="detail-icon">🕐</span>
+                            <span>10:00 AM - 03:00 PM</span>
+                        </li>
+                        <li class="card-detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Riverside Park, Bangalore</span>
+                        </li>
+                    </ul>
+                    <p class="card-description">
+                        A fun outdoor picnic with games, food, and team activities for all members and their families.
+                    </p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-edit" type="button">✏️ Edit</button>
+                    <button class="btn-delete" type="button">🗑️ Delete</button>
+                </div>
+            </article>
+
+            <!-- Event Card 3 -->
+            <article class="event-card">
+                <div class="card-category-tag category-workshop">Workshop</div>
+                <div class="card-body">
+                    <h3 class="card-title">Web Development Bootcamp</h3>
+                    <ul class="card-details">
+                        <li class="card-detail">
+                            <span class="detail-icon">📆</span>
+                            <span>November 15, 2026</span>
+                        </li>
+                        <li class="card-detail">
+                            <span class="detail-icon">🕐</span>
+                            <span>02:00 PM - 06:00 PM</span>
+                        </li>
+                        <li class="card-detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Digital Library, Hyderabad</span>
+                        </li>
+                    </ul>
+                    <p class="card-description">
+                        Hands-on workshop covering HTML, CSS, and JavaScript fundamentals for beginners.
+                    </p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-edit" type="button">✏️ Edit</button>
+                    <button class="btn-delete" type="button">🗑️ Delete</button>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- ========== Footer Section ========== -->
+    <footer id="main-footer">
+        <p>&copy; 2026 Event Planner</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
